@@ -14,7 +14,7 @@ command = [
     'pip',
     'install',
     '-r',
-    'requirements.txt',
+    'requirements.dat',
 ]
 subprocess.check_call(command)
 ################################################
@@ -31,8 +31,9 @@ def get_player():
 
 def sub_menu(player, game):
     Utils.clearConsole()
+    GameName = game.about()
     print(f'''Good game, \033[1;31m{player}\033[0m.
-    1 - Play \033[1;41m{game.__name__}\033[0m again 
+    1 - Play \033[96m\033[4m{GameName[0]}\033[0m again 
     2 - Main menu
     3 - Change Player
     4 - Exit\n''')

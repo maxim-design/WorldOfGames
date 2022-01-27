@@ -1,23 +1,20 @@
 '''
-WoG Menu compiler and library. will compile the list of games based on library list.
-adding a game has never been easier.
+WoG Menu compiler and library. will compile the list of games based on library /Games content.
+adding a game has never been easier. Simply place the new game module into /Games directory.
+important note:
+          each game MUST contain,
+          "about" function - returns 2 values (name, description)
+          "play" function - returns boolean value True / False if the game won or lost.
 '''
 from Data import Utils
 import sys
 import os, datetime
 
 ############################################################################
-##################### Games library list  ##############################
-'''
-This section contains the game module names in the game list that populates the 
-main menu. To add another game just add its module name here.
-note: a game must contain about(), play(difficulty) functions.
-about - returns to the platform name, description valuables. (to populate the menu)
-play  - will execute the game with difficulty and return True/False for win or lose.
-'''
-#import MemoryGame, GuessGame, CurrencyRouletteGame
-menu_list = ['MemoryGame', 'GuessGame', 'CurrencyRouletteGame']
-
+######################### Games library list  ##############################
+Live_path = os.path.dirname(os.path.realpath(__file__))
+menu_list = [".".join(f.split(".")[:-1]) for f in os.listdir(f'{Live_path}/Games') if os.path.isfile(os.path.join(f'{Live_path}/Games', f))]
+menu_list.remove("__ init __")
 ############################################################################
 ############################################################################
 
@@ -91,5 +88,9 @@ def Choose_game():
 
 
 if __name__ == "__main__":
+    #dst = f'{os.curdir}/Games'
+    files = [f for f in os.listdir(f'{os.curdir}/Games') if os.path.isfile(os.path.join(f'{os.curdir}/Games', f))]
+    files.remove("__ init __.py")
+    print(list(files))
     print("This file needs to be run from MainGame.py thank and have a nice day")
     input("Press Enter to continue...")
