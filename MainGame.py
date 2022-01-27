@@ -1,7 +1,11 @@
+'''
+This is the main game platform executable. world of games is a gaming platform
+that enables to run games added to its library
+'''
 ################################################
 ### this part installs all the prerequisites ###
 ################################################
-import subprocess
+import subprocess, Utils
 import sys
 
 command = [
@@ -15,22 +19,18 @@ command = [
 subprocess.check_call(command)
 ################################################
 ################################################
-
 import importlib
 import Live
 from Live import menu_list as game_list
-import os, time
-
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 
 def get_player():
-    clearConsole()
+    Utils.clearConsole()
     player_name = input(" Enter player Name: ")
     return player_name
 
 def sub_menu(player, game):
-    clearConsole()
+    Utils.clearConsole()
     print(f'''Good game, \033[1;31m{player}\033[0m.
     1 - Play \033[1;41m{game.__name__}\033[0m again 
     2 - Main menu
@@ -72,7 +72,7 @@ def Play(game, difficulty, player):
         
                     \033[4;35mSorry, you Lose.\033[0m\n
         ''')
-        time.sleep(3)
+        Utils.counter(3)
         again = sub_menu(player, game)
         if again == 1:
             Play(game, difficulty, player)
@@ -81,7 +81,7 @@ def Play(game, difficulty, player):
         
                     \033[4;32mWinner, Winner, Chicken Dinner\033[0m\n
         ''')
-        time.sleep(3)
+        Utils.counter(3)
         again = sub_menu(player, game)
         if again == 1:
             Play(game, difficulty, player)

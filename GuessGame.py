@@ -1,7 +1,9 @@
-import os, random
-
-
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+'''
+Guess Game for WoG platform.
+about function returns game name, description
+play(difficulty) function will run the game.
+'''
+import random, Utils
 
 
 def about():
@@ -12,7 +14,7 @@ def about():
 
 
 def generate_number(difficulty):
-    clearConsole()
+    Utils.clearConsole()
     last = difficulty + 1
     value = random.randint(1, last)
     last_in_range = difficulty + 1

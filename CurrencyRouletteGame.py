@@ -1,8 +1,11 @@
-import os, random
+'''
+Currency Roulette for WoG platform.
+about function returns game name, description
+play(difficulty) function will run the game.
+'''
+
+import random, Utils
 import requests
-
-
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 
 def about():
@@ -12,7 +15,7 @@ def about():
 
 
 def generate_number(difficulty):
-    clearConsole()
+    Utils.clearConsole()
     value = random.randint(10, 100)
     print("\n                                  \033[4;94mCurrency Roulette Game\033[0m\n ")
     print(f"""Hi,

@@ -1,8 +1,12 @@
-import os, random
+'''
+Memory game for WoG platform.
+about function returns game name, description
+play(difficulty) function will run the game.
+'''
+
+import random, Utils
 import time
 
-
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 def about():
     game_name = "Memory Game"
@@ -10,7 +14,7 @@ def about():
     return game_name, game_description
 
 def generate_sequence(difficulty):
-    clearConsole()
+    Utils.clearConsole()
     computer_list = []
     for a in range(0, difficulty):
         computer_list.append(random.randint(1, 101))

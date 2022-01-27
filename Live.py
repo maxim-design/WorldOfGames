@@ -1,21 +1,25 @@
-import sys
+'''
+WoG Menu compiler and library. will compile the list of games based on library list.
+adding a game has never been easier.
+'''
+
+import sys, Utils
 import os, datetime
 
 ############################################################################
-##################### This Defines the games  ##############################
+##################### Games library list  ##############################
 '''
-This section contains the Game modules and the game list that populates the 
-main menu. To add another game just add its module here and to the list.
-note: The game must contain an "about" and "play" functions that return 
-correct values. order must be maintained.
+This section contains the game module names in the game list that populates the 
+main menu. To add another game just add its module name here.
+note: a game must contain about(), play(difficulty) functions.
+about - returns to the platform name, description valuables. (to populate the menu)
+play  - will execute the game with difficulty and return True/False for win or lose.
 '''
-import MemoryGame, GuessGame, CurrencyRouletteGame
+#import MemoryGame, GuessGame, CurrencyRouletteGame
 menu_list = ['MemoryGame', 'GuessGame', 'CurrencyRouletteGame']
 
 ############################################################################
 ############################################################################
-
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 
 def error_logging(error):
@@ -46,7 +50,7 @@ menu.update({'Exit':'Quit playing World of Games (WoG)'})
 
 
 def welcome(name):
-  clearConsole()
+  Utils.clearConsole()
   print(f"""Hello \033[1;31m{name}\033[0m and welcome to the World of Games (WoG).
 Here you can find many cool games to play.\n""")
 
