@@ -5,7 +5,7 @@ that enables to run games added to its library
 ################################################
 ### this part installs all the prerequisites ###
 ################################################
-import subprocess, Utils
+import subprocess
 import sys
 
 command = [
@@ -19,9 +19,9 @@ command = [
 subprocess.check_call(command)
 ################################################
 ################################################
+from Data import Utils, Live
 import importlib
-import Live
-from Live import menu_list as game_list
+from Data.Live import menu_list as game_list
 
 
 def get_player():
@@ -60,7 +60,7 @@ def sub_menu(player, game):
 def main(player):
     Live.welcome(player)
     result = Live.Choose_game()
-    game_to_play = importlib.import_module(game_list[result[0]-1])
+    game_to_play = importlib.import_module(f'Data.Games.{game_list[result[0]-1]}')
     game_difficulty = result[1]
     return game_to_play, game_difficulty, player
 
