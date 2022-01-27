@@ -14,6 +14,11 @@ def counter(number):
         time.sleep(1)
 
 
+BAD_RETURN_CODE = {"3001": "no score file exists",
+                   "4001": "Game Module doesn't contain an appropriate about() function. cannot add to menu module: ",
+                   "4002": "Game Module Play function is corrupted or doesnt exist. check game module: "}
+
+
 if __name__ == "__main__":
     print("This file needs to be run from MainGame.py thank and have a nice day")
     input("Press Enter to continue...")
