@@ -5,6 +5,7 @@ that enables to run games added to its library
 ################################################
 ### this part installs all the prerequisites ###
 ################################################
+from Data import Utils, Live
 import subprocess
 import sys
 
@@ -14,12 +15,16 @@ command = [
     'pip',
     'install',
     '-r',
-    'requirements.dat',
+    'requirements.daat'
 ]
-subprocess.check_call(command)
+try:
+    subprocess.check_call(command, stdout=subprocess.DEVNULL)
+except Exception as er:
+    Live.error_logging(f"""{str(er)} {Utils.BAD_RETURN_CODE["2001"]}""")
+    sys.exit("Check error log file")
+
 ################################################
 ################################################
-from Data import Utils, Live
 import importlib
 from Data.Live import menu_list as game_list
 
