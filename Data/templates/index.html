@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>World of Games - LeaderBoard</title>
+	<LINK rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<meta name="viewport"  http-equiv="refresh" content="20" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div id="container">
+  <div id="Leaderboard">
+		</br></br></br></br></br></br></br></br></br></br></br>
+		<div id="score">
+		<table width="400px" style="table-layout:fixed;" class="gridtable" id="Select-b" style="font-size: 25px;">
+			<tr>
+				<th width="50px" >Name</th>
+				<th width="30px" align="center">Score</th>
+			</tr>
+			{% for key, value in SCORES.items() %}
+			<tr>
+				<td id="wrapkey" title="{{ key }}"> {{ key }} </td>
+				<td id="wrapvalue"align="center"> {{ value }} </td>
+			</tr>
+			{% endfor %}
+		</table>
+		</div>
+  </div>
+  </br></br></br></br></br></br></br></br></br></br></br></br>
+  <div>
+	<button type="button" onClick="window.location.reload()">Refresh </button>
+  </div>
+
+</div>
+
+</body>
+</html>
