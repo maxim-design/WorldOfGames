@@ -7,8 +7,7 @@ important note:
           "play" function - returns boolean value True / False if the game won or lost.
 '''
 from Data import Utils
-import sys
-import os, datetime
+import sys, os
 
 ############################################################################
 ######################### Games library list  ##############################
@@ -18,22 +17,12 @@ menu_list.remove("__ init __")
 ############################################################################
 ############################################################################
 
-
-def error_logging(error):
-  path = "error-log"
-  now = str(datetime.datetime.now())
-  os.makedirs(path, exist_ok=True)
-  with open('error-log/error.log', 'a') as f:
-    f.write(now + ": " + error + "\n")
-    f.close()
-
-
 for game in menu_list:
   try:
     exec("from Data.Games import {module}".format(module=game))
   except Exception as e:
-    err = (f"{e} could not be loaded. check specific game file.")
-    error_logging(err)
+    err = (f'{e} could not be loaded. {Utils.BAD_RETURN_CODE["4001"]}')
+    Utils.error_logging(err)
 
 menu = {}
 for i in menu_list:
@@ -41,15 +30,15 @@ for i in menu_list:
     exec("a={module}.about()".format(module=i))
     menu.update({a[0]:a[1]})
   except Exception as er:
-    err2 = (f'could not load "{er}" description, make sure the "about" function is present and correctly returns data')
-    error_logging(err2)
+    err2 = (f'could not load "{er}" description, {Utils.BAD_RETURN_CODE["4002"]}')
+    Utils.error_logging(err2)
 menu.update({'Exit':'Quit playing World of Games (WoG)'})
 
 
 def welcome(name):
   Utils.clearConsole()
   print(f"""Hello \033[1;31m{name}\033[0m and welcome to the World of Games (WoG).
-Here you can find many cool games to play.\n""")
+Here you can find many cool games to play, your score will increase or decrease as you play the games.\n""")
 
 
 def exit():
