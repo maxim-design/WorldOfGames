@@ -4,7 +4,7 @@ adding a game has never been easier. Simply place the new game module into /Game
 important note:
           each game MUST contain,
           "about" function - returns 2 values (name, description)
-          "play" function - returns boolean value True / False if the game won or lost.
+          "play" function - returns 2 values, boolean value True / False if the game won or lost and the correct answer.
 '''
 from Data import Utils
 import sys, os
