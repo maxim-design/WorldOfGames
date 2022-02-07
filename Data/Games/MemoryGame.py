@@ -75,7 +75,7 @@ def play(difficulty):
         b = get_list_from_user()
         result = is_list_equal(a, b)
         attempt = attempt + 1
-    return result
+    return result, a
 
 
 if __name__ == "__main__":

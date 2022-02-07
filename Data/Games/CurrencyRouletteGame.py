@@ -21,9 +21,9 @@ def generate_number(difficulty):
     print(f"""Hi,
 This is an amount in USD: \033[4;92m{value}\033[0m.
 now its you job to guess how much that would be in ILS (Israeli Shekel) without using any tools or websites :)  
-however, based on the difficulty you selected, you'r allowed a margin of error of {5-difficulty}
+however, based on the difficulty you selected, you are allowed a margin of error of: {6-difficulty}
 good luck.\n""")
-    return float(value)
+    return int(value)
 
 
 def get_rate_interval(difficulty, value):
@@ -32,7 +32,7 @@ def get_rate_interval(difficulty, value):
     response = requests.get(f'https://freecurrencyapi.net/api/v2/latest?base={from_}')
     exchange_rate = response.json()['data'][to_]
     secret_ILS_value = value * exchange_rate
-    interval = [float(secret_ILS_value-(5-difficulty)), float(secret_ILS_value+(5-difficulty))]
+    interval = [float(secret_ILS_value-(6-difficulty)), float(secret_ILS_value+(5-difficulty))]
     return interval, secret_ILS_value
 
 
@@ -68,7 +68,7 @@ def play(difficulty):
         b = get_guess_from_user()
         result = a[0][0] < b < a[0][1]
         attempt = attempt + 1
-    return result
+    return result, a[1]
 
 
 if __name__ == "__main__":

@@ -58,7 +58,7 @@ def play(difficulty):
         b = get_guess_from_user()
         result = compare_results(a, b)
         attempt = attempt + 1
-    return result
+    return result, a
 
 
 if __name__ == "__main__":

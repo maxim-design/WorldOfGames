@@ -43,3 +43,5 @@ ErrorHandle: FileNotFoundError: [Errno 2] No such file or directory: 'playerdata
 ErrorHandle: module 'Data.Games.GuessGame' has no attribute 'play'
 2022-02-06 16:41:45.717130: Game module Play function is corrupted or doesnt exist. check game module: <module 'Data.Games.GuessGame' from 'C:\\Users\\maxim\\Desktop\\test\\Data\\Games\\GuessGame.py'>
 ErrorHandle: module 'Data.Games.GuessGame' has no attribute 'play'
+2022-02-07 18:57:04.741334: Game module Play function is corrupted or doesnt exist. check game module: <module 'Data.Games.CurrencyRouletteGame' from 'C:\\Users\\maxim\\Desktop\\myCode\\WorldOfGames\\Data\\Games\\CurrencyRouletteGame.py'>
+ErrorHandle: bad operand type for abs(): 'list'

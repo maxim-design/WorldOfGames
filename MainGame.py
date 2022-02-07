@@ -54,16 +54,17 @@ def Play(game, difficulty, player):
         Utils.error_logging(f"""{Utils.BAD_RETURN_CODE["4003"]}{game}\nErrorHandle: {Perr}""")
         print("\033[1;31mError Playing the Game - check logs.\033[0m.")
         Live.exit()
-    if res is False:
+    if res[0] is False:
         current_total = current_total - Players_Data.gameScore_calc(difficulty)
         if current_total < 0:
             current_total = 0
 
-        print('''
+        print(f'''
         
                     \033[4;35mSorry, you Lose.\033[0m\n
+                        the right answer was: {res[1]}
         ''')
-        Utils.counter(3)
+        Utils.counter(5)
         again = sub_menu(player, game)
         if again == 1:
             Play(game, difficulty, player)
