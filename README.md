@@ -46,7 +46,7 @@ Python 3.8 and pip installer must be present on system.
     ```python3.8
     def about():
    	    game_name = "NewGame"
-    	game_description = "This game does this and that"
+		game_description = "This game does this and that"
         return game_name, game_description
     ```
     **play(difficulty)** - gets the difficulty  as an **_integer_** variable and returning 2 variables: game result, correct answer
