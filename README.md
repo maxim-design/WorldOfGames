@@ -42,6 +42,7 @@ Python 3.8 and pip installer must be present on system.
     must be named `somename.py`and has to contain the following functions:
 	
     **about()**  -  returning 2 variables: game_name, game_description
+	
     example:
     ```python3.8
     def about():
@@ -50,6 +51,8 @@ Python 3.8 and pip installer must be present on system.
         return game_name, game_description
     ```
     **play(difficulty)** - gets the difficulty  as an **_integer_** variable and returning 2 variables: game result, correct answer
+	
+	example:
     ```python3.8
     def play(difficulty):
         correct_answer = computer generated something based on difficulty.
