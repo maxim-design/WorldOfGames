@@ -40,6 +40,7 @@ Python 3.8 and pip installer must be present on system.
     The platform was designed to allow easy game addition by including a new game file into the 
     `../WorldOfGames/Data/Games/` folder. The game must be written in python 3.8 compatible script,
     must be named `somename.py`and has to contain the following functions:
+	
     **about()**  -  returning 2 variables: game_name, game_description
     example:
     ```python3.8
