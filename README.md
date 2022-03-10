@@ -1,3 +1,4 @@
+![image](https://user-images.githubusercontent.com/97593405/157765848-53b2e1a3-c233-4a60-9513-c60f4443fa73.png)
 
 # World Of Games (WoG)  
 #### CLI gaming platform that allows player to choose and play a command line based game.
