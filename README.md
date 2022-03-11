@@ -3,7 +3,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark" >
   <head>
@@ -569,12 +568,20 @@
 
 
 
+=======
+## Execution
+
+WoG platform can be run locally using the built in **bat / sh** files. The web page will automatically open in the default browser showing the Leader board. Once closed, the platform and the flask application will be purged from active memory and will no longer be accessible.
+>>>>>>> b1d3094f174583f167ad28ddc6f3d4158073d817
 
 
+## Testing, Jenkins and Pipeline fun
+You can run the test pipeline using the already, available Jenkinsfile. However, to push the build image to your own docker hub you will need to provide credentials and incorporate them in your own Jenkins system under the appropriate id (see Jenkinsfile line 4)
 
     <div data-pjax-replace id="js-flash-container">
 
 
+<<<<<<< HEAD
   <template class="js-flash-template">
     <div class="flash flash-full  {{ className }}">
   <div class="px-2" >
@@ -585,6 +592,9 @@
     </button>
     
       <div>{{ message }}</div>
+=======
+The platform was made compatible with **Windows**, **Linux**, **Mac** operating systems CLI.
+>>>>>>> b1d3094f174583f167ad28ddc6f3d4158073d817
 
   </div>
 </div>
@@ -1450,8 +1460,11 @@
 
     
 
+[![python](https://user-images.githubusercontent.com/97593405/157931793-17ac9e96-93e6-40ec-9e12-6b612d157d35.png)][1][![docker](https://user-images.githubusercontent.com/97593405/157931835-9583e015-793d-4777-9dc3-8e8a23661bd0.png)][2][![jenkins](https://user-images.githubusercontent.com/97593405/157931843-2c274077-857d-43e4-9e75-14ac02d3f7fc.png)][3]
 
-
+[1]: https://www.python.org/downloads/release/python-380/
+[2]: https://www.docker.com/products/docker-desktop
+[3]: https://www.jenkins.io/download/
 
 
 
@@ -1918,6 +1931,20 @@
 
       <div id="responsive-meta-container" data-pjax-replace>
 </div>
+
+## Demonstration
+**_Playing the games_**
+![WoG-play](https://user-images.githubusercontent.com/97593405/157942891-219998d0-881e-4ec8-b890-374c9314472a.gif)
+
+**_Leaderboard live updating_**
+![leaderboard](https://user-images.githubusercontent.com/97593405/157944981-daf7ce2f-afb0-4a28-bf3a-63b3dbaaa9e6.gif)
+
+**_Jenkins Pipeline run_**
+![pipeline](https://user-images.githubusercontent.com/97593405/157945264-8d40ca8d-5f1d-4d99-9c3d-40fef3da0fa4.gif)
+
+
+
+
 
 
         
