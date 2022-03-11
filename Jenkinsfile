@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-				if (isUnix()) {
+				if (isUnix()==true) {
 					sh "docker-compose build"
 					echo "Docker build complete"
 				}
@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Docker UP') {
             steps {
-                if (isUnix()) {
+                if (isUnix()==true) {
 					sh "docker-compose up -d"
 					echo "Docker Container is running! Flask online."
 				}
@@ -41,7 +41,7 @@ pipeline {
 		}
 		stage('Selenium Tesing') {
             steps {
-				if (isUnix()) {
+				if (isUnix()==true) {
 					sh "pip install selenium"
 					sh "cd test"
 					sh "python3 e2e.py"
@@ -57,8 +57,8 @@ pipeline {
 			}
 		}
 		stage('docker login & push') {
-            steps {
-                if (isUnix()) {
+            steps("one"){
+                if (isUnix()==true) {
 					sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
 					
 				}
@@ -67,8 +67,8 @@ pipeline {
 					
 				}
             }
-			steps {
-				if (isUnix()) {
+			steps("two"){
+				if (isUnix()==true) {
 					sh "docker push maximdesign/max-wog"
 					
 				}
@@ -79,7 +79,7 @@ pipeline {
 		}
 		stage('docker stop and remove') {
             steps {
-                if (isUnix()) {
+                if (isUnix()==true) {
 					sh "docker stop WorldOfGames_Platform"
 					sh "docker rm WorldOfGames_Platform"
 					sh "docker rmi maximdesign/max-wog"
@@ -95,7 +95,7 @@ pipeline {
 		}
 		post {
 			always {
-				if (isUnix()) {
+				if (isUnix()==true) {
 					sh 'docker logout'
 					echo "Logged out of Dockerhub"
 				}
