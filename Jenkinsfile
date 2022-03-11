@@ -22,7 +22,7 @@ pipeline {
             steps {
 				script{
 					if (isUnix()==true) {
-						sh "docker compose build"
+						sh "docker-compose build"
 						echo "Docker build complete"
 					}
 					else {
