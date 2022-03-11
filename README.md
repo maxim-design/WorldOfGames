@@ -11,9 +11,11 @@ Python flask module is used to display the leaderboard  on HTML web page and can
 
 ## Execution
 
-WoG platform can be run localy using the built in **bat / sh** files. The web page will automatically open in the default browser showing the Leader board. Once closed, the platform and the flask application will be purged from active memory and will no longer be accessible .
+WoG platform can be run locally using the built in **bat / sh** files. The web page will automatically open in the default browser showing the Leader board. Once closed, the platform and the flask application will be purged from active memory and will no longer be accessible.
 
 
+## Testing, Jenkins and Pipeline fun
+You can run the test pipeline using the already, available Jenkinsfile. However, to push the build image to your own docker hub you will need to provide credentials and incorporate them in your own Jenkins system under the appropriate id (see Jenkinsfile line 4)
 
 
 ## Environment and minimum requirements
@@ -64,5 +66,19 @@ Jenkins and Docker are needed to run the testing pipeline.
         Result = true or false based on user_input vs correct_answer.
         return result, correct_answer
     ```	
+
+## Demonstration
+**_Playing the games_**
+![WoG-play](https://user-images.githubusercontent.com/97593405/157942891-219998d0-881e-4ec8-b890-374c9314472a.gif)
+
+**_Leaderboard live updating_**
+![leaderboard](https://user-images.githubusercontent.com/97593405/157944981-daf7ce2f-afb0-4a28-bf3a-63b3dbaaa9e6.gif)
+
+**_Jenkins Pipeline run_**
+![pipeline](https://user-images.githubusercontent.com/97593405/157945264-8d40ca8d-5f1d-4d99-9c3d-40fef3da0fa4.gif)
+
+
+
+
 
 
