@@ -26,9 +26,9 @@ the platform was written is python3.8 code infrastructure, as such
 Python 3.8 and pip installer must be present on system.
 
 Jenkins and Docker are needed to run the testing pipeline.
-
-
-
+![docker](https://user-images.githubusercontent.com/97593405/157921638-7fcaa98b-2b32-4020-ace3-2d0d74f50e92.png)
+![python](https://user-images.githubusercontent.com/97593405/157921660-653e971a-4169-4af1-8ec6-46714de32317.png)
+![Jenkins](https://user-images.githubusercontent.com/97593405/157921679-f6bff3e3-20d6-4fc5-a708-c6ab37fbee37.png)
 
 
 ## Features
