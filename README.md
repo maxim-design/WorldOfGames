@@ -9,6 +9,8 @@ The program will install all needed python module dependencies, Prompt user to e
 Player will need to choose a game and difficulty level. 
 Python flask module is used to display the leaderboard  on HTML web page and can be accessed from: 127.0.0.1:30000 once running. 
 
+## Execution
+
 WoG platform can be run localy using the built in **bat / sh** files. The web page will automatically open in the default browser showing the Leader board. Once closed, the platform and the flask application will be purged from active memory and will no longer be accessible .
 
 
