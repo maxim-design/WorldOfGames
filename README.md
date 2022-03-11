@@ -1,3 +1,4 @@
+![image](https://user-images.githubusercontent.com/97593405/157765848-53b2e1a3-c233-4a60-9513-c60f4443fa73.png)
 
 # World Of Games (WoG)  
 #### CLI gaming platform that allows player to choose and play a command line based game.
@@ -47,7 +48,7 @@ Python 3.8 and pip installer must be present on system.
     ```python3.8
     def about():
    	    game_name = "NewGame"
-		game_description = "This game does this and that"
+	    game_description = "This game does this and that"
         return game_name, game_description
     ```
     **play(difficulty)** - gets the difficulty  as an **_integer_** variable and returning 2 variables: game result, correct answer
