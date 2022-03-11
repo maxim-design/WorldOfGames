@@ -54,13 +54,13 @@ pipeline {
 				script {
 					if (isUnix()==true) {
 						sh "pip install selenium"
-						sh "tests//python3 e2e.py"
+						sh "python3 tests//e2e.py"
 
 					}
 					else {
 						bat "pip install selenium"
 						bat "cd tests"
-						bat "tests//python e2e.py"
+						bat "python tests//e2e.py"
 					}
 				}
 			}
