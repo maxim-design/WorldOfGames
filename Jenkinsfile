@@ -7,11 +7,11 @@ pipeline {
         stage('Checkout') { 
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/maxim-design/WorldOfGames.git']]])
-				if (isUnix()){
-					sh "type wog.txt"
-                    }
+		if (isUnix()){
+			sh "type wog.txt"
+                   }
                 else {
-                    bat "type wog.txt"  
+                    	bat "type wog.txt"  
                    }
             }
         }
@@ -44,7 +44,7 @@ pipeline {
 				if (isUnix()) {
 					sh "pip install selenium"
 					sh "cd test; python3 e2e.py;"
-					if [ $? -eq 0 ] then {set -o errexit}
+					if ( $? -eq 0 ) then {set -o errexit}
 					else {echo "Testing Successful"}
 					sh "cd .."
 
