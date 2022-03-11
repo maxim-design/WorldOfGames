@@ -69,12 +69,12 @@ pipeline {
             steps {
 				script{
 					if (isUnix()==true) {
-						sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+						sh "docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW"
 						sh "docker push maximdesign/max-wog"
 						
 					}
 					else {
-						bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+						bat "docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW"
 						bat "docker push maximdesign/max-wog"
 						
 					}
