@@ -50,4 +50,4 @@ def File_Content():
                         </html>""" #### this section contains the hole image in byte64 format. expand with care :)
 
 if __name__ == '__main__':
-    app.run('127.0.0.1', port=30000)
+    app.run(debug=True, host="0.0.0.0")

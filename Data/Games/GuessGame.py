@@ -16,6 +16,7 @@ def about():
 
 def generate_number(difficulty):
     Utils.clearConsole()
+    Utils.banner()
     last = difficulty + 1
     value = random.randint(1, last)
     last_in_range = difficulty + 1

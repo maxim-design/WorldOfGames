@@ -11,12 +11,14 @@ current_total = 0
 
 def get_player():
     Utils.clearConsole()
+    Utils.banner()
     player_name = input(" Enter player Name: ")
     return player_name
 
 
 def sub_menu(player, game):
     Utils.clearConsole()
+    Utils.banner()
     GameName = game.about()
     print(f'''Good game, \033[1;31m{player}\033[0m. Your current score: \033[93m{current_total}\033[0m,
     1 - Play \033[96m\033[4m{GameName[0]}\033[0m again (same difficult)

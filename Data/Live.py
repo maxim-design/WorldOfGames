@@ -37,6 +37,7 @@ menu.update({'Exit':'Quit playing World of Games (WoG)'})
 
 def welcome(name):
   Utils.clearConsole()
+  Utils.banner()
   print(f"""Hello \033[1;31m{name}\033[0m and welcome to the World of Games (WoG).
 Here you can find many cool games to play, your score will increase or decrease as you play the games.\n""")
 

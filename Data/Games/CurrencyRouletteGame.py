@@ -16,6 +16,7 @@ def about():
 
 def generate_number(difficulty):
     Utils.clearConsole()
+    Utils.banner()
     value = random.randint(10, 100)
     print("\n                                  \033[4;94mCurrency Roulette Game\033[0m\n ")
     print(f"""Hi,

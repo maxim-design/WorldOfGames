@@ -16,6 +16,7 @@ def about():
 
 def generate_sequence(difficulty):
     Utils.clearConsole()
+    Utils.banner()
     computer_list = []
     for a in range(0, difficulty):
         computer_list.append(random.randint(1, 101))
