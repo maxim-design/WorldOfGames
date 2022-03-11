@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 
-SRV = Service("./chromedriver.exe")
+SRV = Service("./tests/chromedriver.exe")
 test_driver = webdriver.Chrome(service=SRV)
 
 
