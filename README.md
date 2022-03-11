@@ -2,7 +2,7 @@
 
 # World Of Games (WoG)  
 #### CLI gaming platform that allows player to choose and play a command line based game.
-this project was created during DevOps training course and demonstrates Python coding, working with Flask and HTML page creation and publishing.
+this project was created during DevOps training course and demonstrates Python coding, working with Flask and HTML page creation and publishing, as well as using Docker to package the app into a container and running it in a Jenkins Pipeline with some Selenium tests on the games scoreboard.  
 
 The program will install all needed python module dependencies, Prompt user to enter player name (will be recorded for leaderboard) and display the playable games menu. 
 
@@ -12,7 +12,9 @@ Python flask module is used to display the leaderboard  on HTML web page and can
 If WoG platform is run using the built in **bat / sh** files the web page will automatically open in the default browser. Once closed, the platform and the flask application will be purged from active memory and will no longer be accessible .
 
 
-**_this project it is still a work in progress_**
+
+
+
 
 
 
@@ -22,6 +24,9 @@ The platform was made compatible with Windows, Linux, Mac operating systems CLI.
 
 the platform was written is python3.8 code infrastructure, as such 
 Python 3.8 and pip installer must be present on system.
+
+Jenkins and Docker are needed to run the testing pipeline.
+
 
 
 
@@ -41,19 +46,15 @@ Python 3.8 and pip installer must be present on system.
     The platform was designed to allow easy game addition by including a new game file into the 
     `../WorldOfGames/Data/Games/` folder. The game must be written in python 3.8 compatible script,
     must be named `somename.py`and has to contain the following functions:
-	
     **about()**  -  returning 2 variables: game_name, game_description
-	
     example:
     ```python3.8
     def about():
    	    game_name = "NewGame"
-	    game_description = "This game does this and that"
+    	game_description = "This game does this and that"
         return game_name, game_description
     ```
     **play(difficulty)** - gets the difficulty  as an **_integer_** variable and returning 2 variables: game result, correct answer
-	
-	example:
     ```python3.8
     def play(difficulty):
         correct_answer = computer generated something based on difficulty.
