@@ -93,16 +93,17 @@ pipeline {
 				}
             }
 		}
-	post {
-        always {
-            if (isUnix()) {
-				sh 'docker logout'
-				echo "Logged out of Dockerhub"
+		post {
+			always {
+				if (isUnix()) {
+					sh 'docker logout'
+					echo "Logged out of Dockerhub"
+				}
+				else{
+					bat 'docker logout'
+					echo "Logged out of Dockerhub"
+				}
 			}
-			else{
-				bat 'docker logout'
-				echo "Logged out of Dockerhub"
-			}
-        }
-    }
+		}
+	}
 }
