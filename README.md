@@ -14,10 +14,6 @@ If WoG platform is run using the built in **bat / sh** files the web page will a
 
 
 
-
-
-
-
 ## Environment and minimum requirements
 
 The platform was made compatible with Windows, Linux, Mac operating systems CLI.
@@ -26,6 +22,12 @@ the platform was written is python3.8 code infrastructure, as such
 Python 3.8 and pip installer must be present on system.
 
 Jenkins and Docker are needed to run the testing pipeline.
+
+[![python](https://user-images.githubusercontent.com/97593405/157931793-17ac9e96-93e6-40ec-9e12-6b612d157d35.png)][1][![docker](https://user-images.githubusercontent.com/97593405/157931835-9583e015-793d-4777-9dc3-8e8a23661bd0.png)][2][![jenkins](https://user-images.githubusercontent.com/97593405/157931843-2c274077-857d-43e4-9e75-14ac02d3f7fc.png)][3]
+
+[1]: https://www.python.org/downloads/release/python-380/
+[2]: https://www.docker.com/products/docker-desktop
+[3]: https://www.jenkins.io/download/
 
 
 ## Features
