@@ -44,17 +44,14 @@ pipeline {
 				if (isUnix()) {
 					sh "pip install selenium"
 					sh "cd test"
-					rc = sh "python3 e2e.py"
-					if ( rc == 1) then {set -o errexit}
-					else {echo "Testing Successful"}
+					sh "python3 e2e.py"
 					sh "cd .."
 
 				}
 				else {
 					bat "pip install selenium"
-					bat "cd test & python3 e2e.py"
-					if %ERRORLEVEL% EQU 1 echo (exit /b 1)
-					if %ERRORLEVEL% EQU 0 echo "Testing Successful"
+					bat "cd test"
+					bat "python e2e.py"
 					bat "cd .."
 				}
 			}
