@@ -21,7 +21,8 @@ def test_scores_service(Leaderboard_url):
 
 def main_function():
     if test_scores_service("http://127.0.0.1:5000"):
-        return exit(0)
-    return exit(1)
-output = str(main_function())
-print(output)
+   	 return exit(0)
+    else:
+    	return exit(1)
+
+print(main_function())

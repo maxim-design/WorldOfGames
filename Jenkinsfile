@@ -2,6 +2,7 @@ pipeline {
     agent any
 	environment {
 		DOCKERHUB_CREDENTIALS = credentials('maximdesign-dockerhub')
+		docker_run_check = 0
 	}
     stages {
         stage('Checkout') { 
@@ -37,10 +38,13 @@ pipeline {
 					if (isUnix()==true) {
 						sh "docker-compose up -d"
 						echo "Docker Container is running! Flask online."
+						docker_run_check = 1
 					}
 					else {
 						bat "docker-compose up -d"
 						echo "Docker Container is running! Flask online."
+						docker_run_check = 1
+						
 					}
 				}
             }
@@ -80,33 +84,23 @@ pipeline {
 				}
             }
 		}
-		stage('docker stop and remove') {
-            steps {
-				script{
-					if (isUnix()==true) {
-						sh "docker stop WorldOfGames_Platform"
-						sh "docker rm WorldOfGames_Platform"
-						sh "docker rmi maximdesign/max-wog"
-						echo "Docker Container has been terminated & removed."
-					}
-					else {
-						bat "docker stop WorldOfGames_Platform"
-						bat "docker rm WorldOfGames_Platform"
-						bat "docker rmi maximdesign/max-wog"
-						echo "Docker Container has been terminated & removed."
-					}
-				}
-            }
-		}
 	}
 	post {
 		always {
 			script{
 				if (isUnix()==true) {
+					sh "docker stop WorldOfGames_Platform"
+					sh "docker rm WorldOfGames_Platform"
+					sh "docker rmi maximdesign/max-wog"
+					echo "Docker Container has been terminated & removed."
 					sh 'docker logout'
 					echo "Logged out of Dockerhub"
 				}
 				else{
+					bat "docker stop WorldOfGames_Platform"
+					bat "docker rm WorldOfGames_Platform"
+					bat "docker rmi maximdesign/max-wog"
+					echo "Docker Container has been terminated & removed."
 					bat 'docker logout'
 					echo "Logged out of Dockerhub"
 				}
