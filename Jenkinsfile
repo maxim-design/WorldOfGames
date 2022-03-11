@@ -43,8 +43,9 @@ pipeline {
             steps {
 				if (isUnix()) {
 					sh "pip install selenium"
-					sh "cd test; python3 e2e.py;"
-					if ( $? -eq 0 ) then {set -o errexit}
+					sh "cd test"
+					rc = sh "python3 e2e.py"
+					if ( rc == 1) then {set -o errexit}
 					else {echo "Testing Successful"}
 					sh "cd .."
 
