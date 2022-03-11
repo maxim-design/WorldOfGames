@@ -7,7 +7,7 @@ this project was created during DevOps training course and demonstrates **Python
 The program will install all needed python module dependencies, Prompt user to enter player name (will be recorded for leaderboard) and display the playable games menu. 
 
 Player will need to choose a game and difficulty level. 
-Python flask module is used to display the leaderboard  on HTML web page and can be accessed from: 127.0.0.1:30000 once running. 
+Python flask module is used to display the leaderboard  on HTML web page and can be accessed from: 127.0.0.1:5000 once running. 
 
 ## Execution
 
