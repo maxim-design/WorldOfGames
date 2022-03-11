@@ -10,7 +10,7 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/maxim-design/WorldOfGames.git']]])
 				script{
 					if (isUnix()){
-						sh "type wog.txt"
+						sh "cat wog.txt"
 					}
 					else {
 						bat "type wog.txt"  
