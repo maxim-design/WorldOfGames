@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') { 
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/maxim-design/WorldOfGames.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/maxim-design/WorldOfGames.git']]])
 				script{
 					if (isUnix()){
 						sh "type wog.txt"
