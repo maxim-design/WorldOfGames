@@ -50,6 +50,7 @@ Jenkins and Docker are needed to run the testing pipeline.
     `../WorldOfGames/Data/Games/` folder. The game must be written in python 3.8 compatible script,
     must be named `somename.py`and has to contain the following functions:
     **about()**  -  returning 2 variables: game_name, game_description
+   
     example:
     ```python3.8
     def about():
@@ -57,7 +58,10 @@ Jenkins and Docker are needed to run the testing pipeline.
     	game_description = "This game does this and that"
         return game_name, game_description
     ```
+    
     **play(difficulty)** - gets the difficulty  as an **_integer_** variable and returning 2 variables: game result, correct answer
+    
+    example:
     ```python3.8
     def play(difficulty):
         correct_answer = computer generated something based on difficulty.
