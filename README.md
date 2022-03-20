@@ -56,7 +56,7 @@ Jenkins and Docker are needed to run the testing pipeline.
     ```python3.8
     def about():
    	    game_name = "NewGame"
-    	game_description = "This game does this and that"
+        game_description = "This game does this and that"
         return game_name, game_description
     ```
     
