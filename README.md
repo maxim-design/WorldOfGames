@@ -60,7 +60,7 @@ Jenkins and Docker are needed to run the testing pipeline.
         return game_name, game_description
     ```
     
-    **play(difficulty)** - gets the difficulty  as an **_integer_** variable and returning 2 variables: game result, correct answer
+    **play(difficulty)** - gets the difficulty  as an **_integer_** variable and returning 2 variables: game result (True/False), correct answer
     
     example:
     ```python3.8
