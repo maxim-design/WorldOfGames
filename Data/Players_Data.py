@@ -1,11 +1,50 @@
-import json, os.path
+import sqlite3, json, os.path
 from os import path
 
+
+
+def create_sql_db(dictdata):
+    playerscores = dictdata
+    keys = list(playerscores.keys())
+    del keys[0]
+    first = (list(playerscores.keys())[0])
+    firstvalue = playerscores[first]
+    values = list(playerscores.values())
+    del values[0]
+
+    conn = sqlite3.connect('./Data/playerdata.dat')
+
+    c = conn.cursor()
+    c.execute("DROP TABLE IF EXISTS playerscores")
+    c.execute(f'CREATE TABLE playerscores ({first} text) ')
+    c.execute(f'INSERT INTO playerscores ({first}) values ({firstvalue})')
+
+    for i in keys:
+        c.execute(f'ALTER TABLE playerscores ADD COLUMN "{(i)}" text')
+        conn.commit()
+
+    for i in keys:  
+        c.execute(f'UPDATE playerscores SET "{i}" = ("{values[keys.index(i)]}")')
+
+    conn.commit()
+    conn.close()
+
+def load_sql_into_dict():
+    SQLDB = "./Data/playerdata.dat"
+    conn = sqlite3.connect( SQLDB )
+    conn.row_factory = sqlite3.Row
+    db = conn.cursor()
+    db.execute('SELECT * from playerscores')
+    rows = db.fetchall()
+    for t in rows:
+        newdata = dict(t)
+    for key in newdata:
+        newdata[key] = int(newdata[key])
+    return newdata
 
 def gameScore_calc(difficulty):
     game_score = (difficulty * 3) + 5
     return game_score
-
 
 def apply_current_score_to_player(player_name, newscore):
 
@@ -21,14 +60,10 @@ def apply_current_score_to_player(player_name, newscore):
     newscore = (list(newdata.values()))[0]
 
     try:
-        with open('Data/playerdata.dat') as json_file:
-            data = json.load(json_file)
+        data =load_sql_into_dict()
     except:
-        with open('Data/playerdata.dat', 'w', encoding='utf-8') as f:
-            json.dump(basedata, f, ensure_ascii=False, indent=4)
-        with open('Data/playerdata.dat') as json_file:
-            data = json.load(json_file)
-
+        create_sql_db(basedata)
+        data = load_sql_into_dict()
     ammountOFkeys = len(data.keys())
     if ammountOFkeys < 10:
         if player_name in data:
@@ -46,7 +81,6 @@ def apply_current_score_to_player(player_name, newscore):
                 del data[(list(data.keys()))[9]]
                 data.update(newdata)
 
-
     tempDict = {}
 
     sortedList=sorted(data.values())
@@ -56,8 +90,7 @@ def apply_current_score_to_player(player_name, newscore):
         for key, value in data.items():
             if value==sortedKey:
                 tempDict[key]=value
-        with open('Data/playerdata.dat', 'w', encoding='utf-8') as f: json.dump(tempDict, f, ensure_ascii=False, indent=4)
-
+    create_sql_db(tempDict)
 
 if __name__ == "__main__":
     print("This file needs to be run from MainGame.py thank and have a nice day")

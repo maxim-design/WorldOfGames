@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import os, json
 from Data import Utils
+from Data import Players_Data
 
 
 TEMPLATE_DIR = os.path.abspath('./Data/templates')
@@ -10,8 +11,7 @@ app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
 @app.route('/')
 def File_Content():
    try:
-        with open('Data/playerdata.dat') as json_file:
-            data = json.load(json_file)
+        data = Players_Data.load_sql_into_dict()
         return render_template("index.html", SCORES=dict(data))
    except Exception as e:
         errormsg = f"{e.__class__.__name__}: {e}"

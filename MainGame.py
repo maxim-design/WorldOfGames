@@ -12,8 +12,14 @@ current_total = 0
 def get_player():
     Utils.clearConsole()
     Utils.banner()
-    player_name = input(" Enter player Name: ")
-    return player_name
+    player_n = " "
+    index_a = 1
+    while Utils.string_check(player_n):
+        if index_a == 2:
+            print('\033[F' + '\033[K' + '\033[F')
+        player_n = input(" Enter player Name: ")
+        index_a = 2
+    return player_n
 
 
 def sub_menu(player, game):
@@ -57,10 +63,6 @@ def Play(game, difficulty, player):
         print("\033[1;31mError Playing the Game - check logs.\033[0m.")
         Live.exit()
     if res[0] is False:
-        current_total = current_total - Players_Data.gameScore_calc(difficulty)
-        if current_total < 0:
-            current_total = 0
-
         print(f'''
         
                     \033[4;35mSorry, you Lose.\033[0m\n

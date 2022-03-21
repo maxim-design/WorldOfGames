@@ -1,7 +1,8 @@
 '''
 This is the utility file for the World of Games platform.
 '''
-import os, time, datetime
+import os, time, datetime, re
+
 
 
 def clearConsole():
@@ -36,6 +37,12 @@ def banner():
     ╚\033[96m███╔███╔╝╚██████╔╝██\033[94m║  ██║███████╗██████╔╝    ╚███\033[93m███╔╝██║         ╚██████╔╝██║  ██║██\033[96m║ ╚═╝ ██║███████╗████\033[0m███║
     \033[96m ╚══╝╚══╝  ╚═════╝\033[94m ╚═╝  ╚═╝╚══════╝╚═════╝      ╚\033[93m═════╝ ╚═╝          ╚═════╝ ╚═╝  ╚═╝\033[96m╚═╝     ╚═╝╚══════╝╚══\033[0m════╝                                                                                                                                       
        \033[0m\n''')
+
+def string_check(user_input):
+    if not re.match("^[A-Z,0-9,a-z,-]*$", user_input):
+        return True
+    elif len(user_input) > 20:
+        return True
 
 
 if __name__ == "__main__":
