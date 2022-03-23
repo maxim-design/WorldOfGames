@@ -6,6 +6,7 @@ important note:
           "about" function - returns 2 values (name, description)
           "play" function - returns 2 values, boolean value True / False if the game won or lost and the correct answer.
 '''
+
 from Data import Utils
 import sys, os
 
@@ -34,7 +35,6 @@ for i in menu_list:
     Utils.error_logging(err2)
 menu.update({'Exit':'Quit playing World of Games (WoG)'})
 
-
 def welcome(name):
   Utils.clearConsole()
   Utils.banner()
@@ -51,22 +51,13 @@ Press Enter to close''')
 
 
 def Choose_game():
-  line=1
-  print("\033[4;94mPlease Choose a game to play:\033[0m\n")
-  for key, value in menu.items():
-    print(f"{line}.", key, ' - ', value)
-    line+=1
-  print("\n")
-  choice = ""
-  index = 1
-  while not choice.isnumeric() or 0 >= int(choice) or int(choice) > len(menu.keys()):
-    if index == 2:
-      print('\033[F' + '\033[K' + '\033[F')
-    choice = input("Enter selection: ")
-    index = 2
-  if int(choice) == len(menu.keys()):
-    exit()
-  else:
+    choice_list = []
+    for key, value in menu.items():
+        temp = f"{key}  -  {value}"
+        choice_list.append(temp)
+    choice = Utils.show_menu(choice_list)
+    if choice == len(choice_list):
+      exit()
     difficulty = ""
     index_b = 1
     while not difficulty.isnumeric() or 0 >= int(difficulty) or int(difficulty) > 5:
@@ -74,13 +65,10 @@ def Choose_game():
         print('\033[F' + '\033[K' + '\033[F')
       difficulty = input("Input difficulty level between 1-5: ")
       index_b = 2
-  return int(choice), int(difficulty)
+
+    return choice, int(difficulty)
 
 
 if __name__ == "__main__":
-    #dst = f'{os.curdir}/Games'
-    files = [f for f in os.listdir(f'{os.curdir}/Games') if os.path.isfile(os.path.join(f'{os.curdir}/Games', f))]
-    files.remove("__ init __.py")
-    print(list(files))
     print("This file needs to be run from MainGame.py thank and have a nice day")
     input("Press Enter to continue...")

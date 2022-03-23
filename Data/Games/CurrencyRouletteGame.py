@@ -28,10 +28,13 @@ good luck.\n""")
 
 
 def get_rate_interval(difficulty, value):
+    myfreeapi= "z86XHrIj04TLhizuKK3YNKb4svyf5Yysl07V19ts"
     from_ = "USD"
     to_ = "ILS"
-    response = requests.get(f'https://freecurrencyapi.net/api/v2/latest?base={from_}')
-    exchange_rate = response.json()['data'][to_]
+    print("\033[94mCalculating please wait...\033[0m\n")
+    response = requests.get(f'https://api.currencyapi.com/v3/latest?apikey={myfreeapi}&base_currency={from_}')
+    rate = response.json()['data'][to_]
+    exchange_rate = rate['value']
     secret_ILS_value = value * exchange_rate
     interval = [float(secret_ILS_value-(6-difficulty)), float(secret_ILS_value+(5-difficulty))]
     return interval, secret_ILS_value

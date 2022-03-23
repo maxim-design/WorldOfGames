@@ -5,11 +5,16 @@ that enables to run python writen games added to its library
 from Data import Utils, Live, Players_Data
 import importlib, initialize
 from Data.Live import menu_list as game_list
+from pygame import mixer
 
 current_total = 0
-
+mixer.init()
+mixer.music.load("Data/Sound/gamesound.wav") # Paste The audio file location 
+mixer.music.play(-1) 
 
 def get_player():
+    global current_total
+    current_total = 0
     Utils.clearConsole()
     Utils.banner()
     player_n = " "
@@ -26,22 +31,16 @@ def sub_menu(player, game):
     Utils.clearConsole()
     Utils.banner()
     GameName = game.about()
-    print(f'''Good game, \033[1;31m{player}\033[0m. Your current score: \033[93m{current_total}\033[0m,
-    1 - Play \033[96m\033[4m{GameName[0]}\033[0m again (same difficult)
-    2 - play a different game
-    3 - Exit\n''')
-    choice = ""
-    index = 1
-    while not choice.isnumeric() or 0 >= int(choice) or int(choice) > 4:
-        if index == 2:
-            print('\033[F' + '\033[K' + '\033[F')
-        choice = input("Enter selection: ")
-        index = 2
-    if int(choice) == 3:
-        Live.exit()
-    elif int(choice) == 1:
-        return int(choice)
-    elif int(choice) == 2:
+    print(f"Good game, \033[1;31m{player}\033[0m. Your current score: \033[93m{current_total}\033[0m\n")
+    choice_list2 = [f'Play {GameName[0]} again (same difficult)', 'Back to games menu', 'New player']
+    choice_sub = Utils.show_menu(choice_list2)
+    if int(choice_sub) == 3:
+        player_name = get_player()
+        start = main(player_name)
+        Play(start[0], start[1], start[2])
+    elif int(choice_sub) == 1:
+        return int(choice_sub)
+    elif int(choice_sub) == 2:
         start = main(player)
         Play(start[0], start[1], start[2])
 
@@ -64,7 +63,7 @@ def Play(game, difficulty, player):
         Live.exit()
     if res[0] is False:
         print(f'''
-        
+
                     \033[4;35mSorry, you Lose.\033[0m\n
                         the right answer was: {res[1]}
         ''')

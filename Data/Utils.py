@@ -1,9 +1,32 @@
 '''
 This is the utility file for the World of Games platform.
 '''
+from __future__ import print_function, unicode_literals
+from PyInquirer import style_from_dict, Token, prompt, Separator
+from pprint import pprint
+
 import os, time, datetime, re
 
-
+def show_menu(choice_list):
+    style = style_from_dict({
+        Token.QuestionMark: '#000000',
+        Token.Selected: 'bg:#00aaaa #000000',
+        Token.Pointer: '#000000',
+        Token.Instruction: '',  # default
+        Token.Answer: '#000000',
+        Token.Question: '',
+    })
+    question_1 = [
+        {
+            'type': 'list',
+            'name': 'choice',
+            'message': " ",
+            'choices': choice_list
+        }
+    ]
+    answer_1 = prompt(question_1, style=style)
+    choice = int(choice_list.index(answer_1['choice']))+1
+    return choice
 
 def clearConsole():
     os.system('cls' if os.name in ('nt', 'dos') else 'clear')
