@@ -38,6 +38,10 @@ Jenkins and Docker are needed to run the testing pipeline.
 
 - self compiling games menu (will include all .py modules present in the `../WorldOfGames/Data/Games/` folder.)
 
+- selectable menu's. (navigate using arrow keys up or down) 
+
+- platform background music while playing. 
+
 - Continuously updating leader board with html output. (top 10 players) 
 
 - execution scripts for automatic platform start (wog.bat / wog.sh)
@@ -74,7 +78,7 @@ Jenkins and Docker are needed to run the testing pipeline.
 
 ## Demonstration
 **_Playing the games_**
-![WoG-play](https://user-images.githubusercontent.com/97593405/157942891-219998d0-881e-4ec8-b890-374c9314472a.gif)
+![gameplay](https://user-images.githubusercontent.com/97593405/159705114-aa93dd60-abe2-4f80-ae51-6b4c4e69d3aa.gif)
 
 **_Leaderboard live updating_**
 ![leaderboard](https://user-images.githubusercontent.com/97593405/157944981-daf7ce2f-afb0-4a28-bf3a-63b3dbaaa9e6.gif)
