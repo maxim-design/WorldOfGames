@@ -2,7 +2,7 @@
 
 # World Of Games (WoG)  
 #### CLI gaming platform that allows player to choose and play a command line based game.
-this project was created during DevOps training course and demonstrates **Python** coding, working with **Flask** and **HTML** page creation and publishing, as well as the use of **SQLite3** to create my leaderboard database, using **Docker** (& Docker-compose) to package the app into a container and running it in a **Jenkins Pipeline** with some **Selenium** tests on the games scoreboard.  
+this project was created during DevOps training course and demonstrates **Python** coding, working with **Flask** and **HTML** page creation and publishing, as well as the use of **SQLite3** to create my leaderboard database, using **Docker** (& Docker-compose) to package the app into a container and running it in a **Jenkins Pipeline** with some **Selenium** automation tests on the games scoreboard.  
 
 The program will install all needed python module dependencies, Prompt user to enter player name (will be recorded for leaderboard) and display the playable games menu. 
 
