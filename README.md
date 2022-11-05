@@ -4,7 +4,7 @@
 #### CLI gaming platform that allows player to choose and play a command line based game.
 this project was created during DevOps training course and demonstrates **Python** coding, working with **Flask** and **HTML** page creation and publishing, as well as the use of **SQLite3** to create my leaderboard database, using **Docker** (& Docker-compose) to package the app into a container and running it in a **Jenkins Pipeline** with some **Selenium** automation tests on the games scoreboard.  
 
-The program will install all needed python module dependencies, Prompt user to enter player name (will be recorded for leaderboard) and display the playable games menu. 
+The program will install all needed python module dependencies, Prompt user to enter player name (will be recorded for leaderboard) and display the available games menu. 
 
 Player will need to choose a game and difficulty level. 
 Python flask module is used to display the leaderboard  on HTML web page and can be accessed from: 127.0.0.1:5000 once running. 
